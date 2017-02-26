@@ -1,0 +1,30 @@
+{
+  "name": "nyt_react_search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cpericak823/nyt_react_search.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cpericak823/nyt_react_search/issues"
+  },
+  "homepage": "https://github.com/cpericak823/nyt_react_search#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "express-handlebars": "^3.0.0",
+    "mongojs": "^2.4.0",
+    "mongoose": "^4.8.5",
+    "react": "^15.4.2"
+  }
+}
