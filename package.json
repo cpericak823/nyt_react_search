@@ -19,12 +19,12 @@
   },
   "homepage": "https://github.com/cpericak823/nyt_react_search#readme",
   "dependencies": {
-    "babel": "^6.23.0",
+    "babel-core": "^6.23.1",
     "body-parser": "^1.16.1",
     "express": "^4.14.1",
-    "express-handlebars": "^3.0.0",
-    "mongojs": "^2.4.0",
+    "mongo": "^0.1.0",
     "mongoose": "^4.8.5",
-    "react": "^15.4.2"
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
   }
 }

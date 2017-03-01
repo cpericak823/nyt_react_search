@@ -1,6 +1,5 @@
 // Dependencies
 var express = require("express");
-var exprhbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var path = require("path");
 
@@ -15,15 +14,11 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Static directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/bundle.js')));
 
 //Require external files
 require("./routes/routes.js")(app);
 var db = require("./controller/connection.js");
-
-//require handlebars
-app.engine("handlebars", exprhbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 
 // Set the app to listen on port 3000
 app.listen(3000, function() {
