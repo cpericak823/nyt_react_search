@@ -14,7 +14,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Static directory
-app.use(express.static(path.join(__dirname, 'public/bundle.js')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Require external files
 require("./routes/routes.js")(app);

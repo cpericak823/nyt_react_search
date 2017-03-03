@@ -5,9 +5,10 @@ var schema = require("../models/schema.js");
 
 
 module.exports = function(app) {
-    app.get("/", function(req, res) {
-        schema.find({}).then(function(searchArticles) {
+    // app.get("/", function(req, res) {
+    //     schema.find({}).then(function(searchArticles) {
+    //         res.sendFile("index.html");
+    //     });
+    // });
 
-        });
-    });
 };
