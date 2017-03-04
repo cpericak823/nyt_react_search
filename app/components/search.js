@@ -1,5 +1,6 @@
 var React = require("react");
 var helper = require("./utils/helper");
+var articleList = require("./results")
 
 var SearchForm = React.createClass({
     //initalize state
@@ -7,7 +8,7 @@ var SearchForm = React.createClass({
         return {
             topic: "",
             startYear: "",
-            endYear: ""
+            endYear: "",
         };
     },
     handleChange: function (event) {
@@ -17,38 +18,65 @@ var SearchForm = React.createClass({
     },
     handleSubmit: function (event) {
         event.preventDefault();
-      var state = this.state
-     this.setState(this.getInitialState());
-     helper.getArticles(state);
+        var state = this.state
+        this.setState(this.getInitialState());
+        helper.getArticles(state);
     },
     render: function () {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Topic:
-          <input type="text"
-                            value={this.state.topic}
-                            onChange={this.handleChange}
-                            required
-                            id="topic" />
-                    </label>
-                    <label>
-                        Start Year:
-          <input type="text"
-                            value={this.state.startYear}
-                            onChange={this.handleChange}
-                            id="startYear" />
-                    </label>
-                    <label>
-                        End Year:
-          <input type="text"
-                            value={this.state.endYear}
-                            onChange={this.handleChange}
-                            id="endYear" />
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form>
+                <div className="panel panel-default">
+                    <div className="panel-body">
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="row">
+                                <label>
+                                    Topic:
+
+                                    <div className="col-md-12">
+                                        <input type="text"
+                                            value={this.state.topic}
+                                            onChange={this.handleChange}
+                                            required
+                                            id="topic" />
+                                    </div>
+
+                                </label>
+                            </div>
+                            <div className="row">
+
+                                <label>
+                                    Start Date (YYYYMMDD):
+                                        <div className="col-md-12">
+                                        <input type="text"
+                                            value={this.state.startYear}
+                                            onChange={this.handleChange}
+                                            id="startYear" />
+                                    </div>
+                                </label>
+
+                            </div>
+                            <div className="row">
+
+                                <label>
+                                    End Year (YYYYMMDD):
+                                        <div className="col-md-12">
+                                        <input type="text"
+                                            value={this.state.endYear}
+                                            onChange={this.handleChange}
+                                            id="endYear" />
+                                    </div>
+                                </label>
+
+                            </div>
+                            <div className="row">
+                                <div className="col-md-4">
+                                    <input type="submit" value="Submit" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         )
     }
