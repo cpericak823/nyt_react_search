@@ -10,26 +10,30 @@ var ArticleList = React.createClass({
         };
     },
     componentDidMount: function () {
-        helper.getArticles().then(function (body) {
-            var articleData = body.data.response.docs;
-            this.setState({
-                articles: articleData
-            })
-        }.bind(this));
+        // helper.getArticles().then(function (body) {
+        //     var articleData = body.data.response.docs;
+        //     console.log(articleData);
+        //     this.setState({
+        //         articles: articleData
+        //     })
+        // }.bind(this));
     },
     render: function () {
-        var articleMap = this.state.articles.map(function (article) {
+        var articleMap = this.props.articles.map(function (article, index) {
 
             return (
-                <div>
+                
+                <div key={index}>
                     <div className="panel panel-default">
                         <div className="panel-body">
-                            <Article name={articleData.headline.main} />
+                         <div> {article.headline.main}</div>
+                         <input type="submit" value="Save" />
                         </div>
                     </div>
                 </div>
             )
-        })
+        });
+        return (<div>{articleMap}</div>)
     }
 })
 module.exports = ArticleList;

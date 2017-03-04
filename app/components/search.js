@@ -1,6 +1,6 @@
 var React = require("react");
 var helper = require("./utils/helper");
-var articleList = require("./results")
+var ArticleList = require("./results")
 
 var SearchForm = React.createClass({
     //initalize state
@@ -9,6 +9,7 @@ var SearchForm = React.createClass({
             topic: "",
             startYear: "",
             endYear: "",
+            articles:[]
         };
     },
     handleChange: function (event) {
@@ -20,7 +21,9 @@ var SearchForm = React.createClass({
         event.preventDefault();
         var state = this.state
         this.setState(this.getInitialState());
-        helper.getArticles(state);
+        helper.getArticles(state).then(function(articles){
+            this.setState({articles:articles})
+        }.bind(this));
     },
     render: function () {
         return (
@@ -76,7 +79,7 @@ var SearchForm = React.createClass({
                         </form>
                     </div>
                 </div>
-
+                <ArticleList articles={this.state.articles}></ArticleList>
             </div>
         )
     }
