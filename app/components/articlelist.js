@@ -18,21 +18,30 @@ var ArticleList = React.createClass({
         //     })
         // }.bind(this));
     },
+    handleSubmit: function (event) {
+        console.log(event);
+     
+    },
     render: function () {
         var articleMap = this.props.articles.map(function (article, index) {
 
             return (
-                
+
                 <div key={index}>
                     <div className="panel panel-default">
                         <div className="panel-body">
-                         <div> {article.headline.main}</div>
-                         <input type="submit" value="Save" />
+                            <div> {article.headline.main}</div>
+                            <button type="submit"
+                                value={this.state.save}
+                                onClick={this.handleSubmit}
+                                required
+                                id="save">Save
+                                </button>
                         </div>
                     </div>
                 </div>
             )
-        });
+        }.bind(this));
         return (<div>{articleMap}</div>)
     }
 })

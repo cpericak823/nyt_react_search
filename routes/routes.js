@@ -2,8 +2,6 @@
 var path = require("path");
 var db = require("../controller/connection.js");
 var schema = require("../models/schema.js");
-var axios = require("axios");
-
 
 module.exports = function(app) {
     //display search articles based on what the user inputs
