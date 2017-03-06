@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 var Promise = require("bluebird");
 mongoose.Promise = Promise;
-
+var uri = 'mongodb://heroku_xtpppv4x:ulifvkoi1pu4lcepkum4v1maad@ds119750.mlab.com:19750/heroku_xtpppv4x';
 //Initialize Mongoose
-mongoose.connect('mongodb://localhost/nytreact');
+mongoose.connect(uri);
 // Save our mongoose connection to db
 var db = mongoose.connection;
 
