@@ -26,9 +26,7 @@ var SearchForm = React.createClass({
         helper.getArticles(state).then(function (articles) {
             this.setState({ articles: articles })
         }.bind(this));
-        // helper.saveArticles(state).then(function(savearticles){
-        //     this.setState({savearticles: savearticles})
-        // }.bind(this));
+      
     },
     render: function () {
         return (

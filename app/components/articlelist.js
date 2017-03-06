@@ -3,6 +3,7 @@ var axios = require("axios");
 var helper = require("./utils/helper")
 
 
+
 var ArticleList = React.createClass({
     getInitialState: function () {
         return {
@@ -20,7 +21,13 @@ var ArticleList = React.createClass({
     },
     handleSubmit: function (event) {
         console.log(event);
-     
+        event.preventDefault();
+        var save = this.state
+        this.setState(this.getInitialState());
+        helper.saveArticles(save).then(function (savearticles) {
+            this.setState({ savearticles: savearticles })
+        }.bind(this));
+
     },
     render: function () {
         var articleMap = this.props.articles.map(function (article, index) {

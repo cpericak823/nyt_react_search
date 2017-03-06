@@ -2,6 +2,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
+var routes = require("./routes/routes")
 
 // Initialize Express
 var app = express();

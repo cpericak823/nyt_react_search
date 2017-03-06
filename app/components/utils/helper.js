@@ -18,14 +18,14 @@ var helper = {
 
     //write a saveArticles function to save the article title and link on click of the save button
     saveArticles: function (state) {
-        return axios.post("/savearticles", {
+        return (axios.put("/", {
             articleName: "article name",
             date: "date"
         }).then(function () {
             console.log(articleName, date);
         }).catch(function (e) {
             console.log(e);
-        });
+        }));
     }
 }
 module.exports = helper;
