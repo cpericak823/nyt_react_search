@@ -18,7 +18,8 @@ var helper = {
 
     //write a saveArticles function to save the article title and link on click of the save button
     saveArticles: function (state) {
-        return (axios.put("/", {
+        return (axios.post("/", {
+            id:"id",
             articleName: "article name",
             date: "date"
         }).then(function () {

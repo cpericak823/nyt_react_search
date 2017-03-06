@@ -5,12 +5,12 @@ var schema = require("../models/schema.js");
 
 module.exports = function(app) {
     //update the schema to save the article
-    app.put("/", function(req, res) {
-          schema.findByIdAndUpdate(id, { $set: { saved: false } }, { new: true }.then(function(savedarticles) {
-            res.sendFile("../public/assets/index.html");
-            console.log(schema);
+    app.post("/", function(req, res) {
+        console.log(req.body);
+          schema.find({}).then(function(savedarticles) {
+            res.sendFile(path.join(__dirname + "/../public/assets/index.html"));
         }).catch(function(err) {
             console.log(err);
-        }));
+        });
     });
 };
