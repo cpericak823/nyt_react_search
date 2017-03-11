@@ -17,16 +17,23 @@ var helper = {
     },
 
     //write a saveArticles function to save the article title and link on click of the save button
-    saveArticles: function (state) {
-        return (axios.post("/", {
-            id:"id",
-            articleName: "article name",
-            date: "date"
-        }).then(function () {
-            console.log(articleName, date);
+    saveArticle: function (postdata) {
+        return (axios.post("/articles", postdata).then(function (res) {
+            console.log(res);
         }).catch(function (e) {
             console.log(e);
         }));
     }
 }
+//    deleteArticles: function (state) {
+        // return (axios.delete("/articles/:id", {
+        //     id:"id",
+        //     articleName: "article name",
+        //     date: "date"
+        // }).then(function (res) {
+        //     console.log(res);
+        // }).catch(function (e) {
+        //     console.log(e);
+        // }));
+    
 module.exports = helper;

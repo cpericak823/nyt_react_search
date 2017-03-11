@@ -1,7 +1,7 @@
 var React = require("react");
 var helper = require("./utils/helper");
 var ArticleList = require("./articlelist");
-var SaveArticles = require("./savedarticles");
+var SavedArticles = require("./savedarticles");
 
 var SearchForm = React.createClass({
     //initalize state
@@ -26,56 +26,56 @@ var SearchForm = React.createClass({
         helper.getArticles(state).then(function (articles) {
             this.setState({ articles: articles })
         }.bind(this));
-      
+
     },
     render: function () {
         return (
             <div>
                 <div className="panel panel-default">
+                    <div className="panel-heading">Search Articles
+                            </div>
                     <div className="panel-body">
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
-                                <label>
-                                    Topic:
-
-                                    <div className="col-md-12">
-                                        <input type="text"
+                                <div className="col-xs-3 col-md-3">
+                                    <label>
+                                        Search Parameter:
+                                            <input type="text"
                                             value={this.state.topic}
                                             onChange={this.handleChange}
                                             required
                                             id="topic" />
-                                    </div>
-
-                                </label>
+                                    </label>
+                                </div>
                             </div>
                             <div className="row">
+                                <div className="col-xs-3 col-md-3">
+                                    <label>
+                                        Start Date (YYYYMMDD):
 
-                                <label>
-                                    Start Date (YYYYMMDD):
-                                        <div className="col-md-12">
-                                        <input type="text"
+                                            <input type="text"
                                             value={this.state.startYear}
                                             onChange={this.handleChange}
                                             id="startYear" />
-                                    </div>
-                                </label>
 
+                                    </label>
+                                </div>
                             </div>
                             <div className="row">
+                                <div className="col-xs-3 col-md-3">
+                                    <label>
+                                        End Year (YYYYMMDD):
 
-                                <label>
-                                    End Year (YYYYMMDD):
-                                        <div className="col-md-12">
-                                        <input type="text"
+                                            <input type="text"
                                             value={this.state.endYear}
                                             onChange={this.handleChange}
                                             id="endYear" />
-                                    </div>
-                                </label>
 
+                                    </label>
+                                </div>
                             </div>
                             <div className="row">
-                                <div className="col-md-4">
+                                <div className="col-xs-3 col-md-3">
                                     <input type="submit" value="Submit" />
                                 </div>
                             </div>
@@ -83,7 +83,7 @@ var SearchForm = React.createClass({
                     </div>
                 </div>
                 <ArticleList articles={this.state.articles}></ArticleList>
-                {/*<SaveArticles savearticles={this.state.savearticles}></SaveArticles>*/}
+                <SavedArticles articles={this.state.articles}></SavedArticles>
             </div>
         )
     }

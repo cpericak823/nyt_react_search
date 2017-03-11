@@ -1,6 +1,7 @@
 var React = require("react");
 var axios = require("axios");
-var helper = require("./utils/helper")
+var helper = require("./utils/helper");
+var Article = require("./article");
 
 
 
@@ -19,15 +20,9 @@ var ArticleList = React.createClass({
         //     })
         // }.bind(this));
     },
-    handleSubmit: function (event) {
-        console.log(event);
+    handleSubmit: function (article) {
         event.preventDefault();
         var save = this.state
-        this.setState(this.getInitialState());
-        helper.saveArticles(save).then(function (savearticles) {
-            this.setState({ savearticles: savearticles })
-        }.bind(this));
-
     },
     render: function () {
         var articleMap = this.props.articles.map(function (article, index) {
@@ -37,13 +32,15 @@ var ArticleList = React.createClass({
                 <div key={index}>
                     <div className="panel panel-default">
                         <div className="panel-body">
-                            <div> {article.headline.main}</div>
-                            <button type="submit"
-                                value={this.state.save}
-                                onClick={this.handleSubmit}
-                                required
-                                id="save">Save
-                                </button>
+                            <div className="row">
+                                <div className="col-xs-3 col-md-9">
+                                    <Article 
+                                        articlename={article.headline.main}
+                                        id={article._id}
+                                        date={article.pub_date}
+                                        />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
